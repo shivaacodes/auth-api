@@ -10,7 +10,7 @@ export default function SignupPage() {
 
   const handleSignup = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/signup', { email, password });
+      const res = await axios.post('http://localhost:5001/api/auth/signup', { email, password }, {withCredentials:true});
       localStorage.setItem('token', res.data.token);
       router.push('/dashboard'); //user dashboard
     } catch (err) {}

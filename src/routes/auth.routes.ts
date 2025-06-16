@@ -1,21 +1,13 @@
-import passport from "passport";
 import express from "express";
+import passport from "passport";
 import jwt from "jsonwebtoken";
-
-declare global {
-  namespace Express {
-    interface User {
-      id: string;
-      role: string;
-      email: string;
-    }
-    interface Request {
-      user?: User;
-    }
-  }
-}
+import { signup, login } from "../controllers/controller.auth";
+import { asyncHandler } from "../utils/asyncHandler";
 
 const router = express.Router();
+
+router.post("/signup", asyncHandler(signup));
+router.post("/login", asyncHandler(login));
 
 router.get("/google", passport.authenticate("google", { scope: ["profile", "email"] }));
 

@@ -8,7 +8,7 @@ export default function AdminPage() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     axios
-      .get('http://localhost:5000/api/admin/dashboard', {
+      .get('http://localhost:5001/api/admin/dashboard', {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then(res => setData(res.data.message))

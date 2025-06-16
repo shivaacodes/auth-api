@@ -10,7 +10,7 @@ export default function LoginPage() {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      const res = await axios.post('http://localhost:5001/api/auth/login', { email, password });
       localStorage.setItem('token', res.data.token);
       router.push('/dashboard');
     } catch (err) {}
@@ -37,7 +37,7 @@ export default function LoginPage() {
         Login
       </button>
       <a
-          href="http://localhost:5000/api/auth/google"
+          href="http://localhost:5001/api/auth/google"
           className="block mt-4 border border-black text-black text-center py-2"
         >
           Continue with Google
