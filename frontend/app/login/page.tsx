@@ -36,6 +36,12 @@ export default function LoginPage() {
       <button onClick={handleLogin} className="bg-black text-white px-4 py-2 w-full">
         Login
       </button>
+      <a
+          href="http://localhost:5000/api/auth/google"
+          className="block mt-4 border border-black text-black text-center py-2"
+        >
+          Continue with Google
+      </a>
     </div>
   );
 }

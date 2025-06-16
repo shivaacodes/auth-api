@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 const prisma = new PrismaClient();
 
+//google functionality
 passport.use(
   new GoogleStrategy(
     {
@@ -16,23 +17,19 @@ passport.use(
     async (accessToken, refreshToken, profile, done) => {
       try {
         const email = profile.emails?.[0].value;
-
         if (!email) return done(null, false);
 
         let user = await prisma.user.findUnique({ where: { email } });
 
         if (!user) {
           user = await prisma.user.create({
-            data: {
-              email,
-              password: "", // or "GOOGLE_USER" — just to fulfill the schema
-            },
+            data: { email, password: "", role: "USER" },
           });
         }
 
         return done(null, user);
       } catch (err) {
-        return done(err, null);
+        return done(err, false);
       }
     }
   )
@@ -47,6 +44,6 @@ passport.deserializeUser(async (id: string, done) => {
     const user = await prisma.user.findUnique({ where: { id } });
     done(null, user);
   } catch (err) {
-    done(err, null);
+    done(err, false);
   }
 });
