@@ -1,6 +1,6 @@
 # tedx-auth api 
 
-auth system built for recruitment  
+auth api built for recruitment using node +express
 basic jwt based login + google oauth  
 admin protected routes and role-based access
 
@@ -24,7 +24,7 @@ admin protected routes and role-based access
 - role-based access (admin/user)
 - protected dashboard route
 - logout
-- minimal ui (just what’s needed)
+- basic frontend fro testing purpose 
 
 ---
 
@@ -71,6 +71,7 @@ JWT_SECRET=some_long_secret
 GOOGLE_CLIENT_ID=...
 GOOGLE_CLIENT_SECRET=...
 GOOGLE_CALLBACK_URL=http://localhost:5001/api/auth/google/callback
+```bash
 
 ## diagram
 
