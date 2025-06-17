@@ -8,13 +8,13 @@ const prisma = new PrismaClient();
 const JWT_SECRET = process.env.JWT_SECRET!;
 
 export const signup = async (req: Request, res: Response) => {
-  console.log("📥 Signup request received");
+  console.log("Signup request received");
 
   try {
     const result = signupSchema.safeParse(req.body);
 
     if (!result.success) {
-      console.log("❌ Zod validation failed", result.error.flatten().fieldErrors);
+      console.log("Zod validation failed", result.error.flatten().fieldErrors);
       return res.status(400).json({ errors: result.error.flatten().fieldErrors });
     }
 
@@ -22,7 +22,7 @@ export const signup = async (req: Request, res: Response) => {
     const existing = await prisma.user.findUnique({ where: { email } });
 
     if (existing) {
-      console.log("⚠️ User already exists");
+      console.log("User already exists");
       return res.status(400).json({ error: "User already exists" });
     }
 
@@ -35,22 +35,22 @@ export const signup = async (req: Request, res: Response) => {
       expiresIn: "1h",
     });
 
-    console.log("✅ Signup successful", user.email);
+    console.log("Signup successful", user.email);
     res.status(201).json({ token, user: { email: user.email, role: user.role } });
   } catch (err) {
-    console.error("🔥 Signup failed", err);
+    console.error("Signup failed", err);
     res.status(500).json({ error: "Signup failed" });
   }
 };
 
 export const login = async (req: Request, res: Response) => {
-  console.log("🔐 Login request received");
+  console.log("Login request received");
 
   try {
     const result = loginSchema.safeParse(req.body);
 
     if (!result.success) {
-      console.log("❌ Zod validation failed", result.error.flatten().fieldErrors);
+      console.log("Zod validation failed", result.error.flatten().fieldErrors);
       return res.status(400).json({ errors: result.error.flatten().fieldErrors });
     }
 
@@ -58,14 +58,14 @@ export const login = async (req: Request, res: Response) => {
     const user = await prisma.user.findUnique({ where: { email } });
 
     if (!user) {
-      console.log("❌ User not found");
+      console.log("User not found");
       return res.status(400).json({ error: "Invalid credentials" });
     }
 
     const valid = await bcrypt.compare(password, user.password);
 
     if (!valid) {
-      console.log("❌ Password mismatch");
+      console.log("Password mismatch");
       return res.status(400).json({ error: "Invalid credentials" });
     }
 
@@ -73,10 +73,10 @@ export const login = async (req: Request, res: Response) => {
       expiresIn: "1h",
     });
 
-    console.log("✅ Login successful", user.email);
+    console.log("Login successful", user.email);
     res.status(200).json({ token, user: { email: user.email, role: user.role } });
   } catch (err) {
-    console.error("🔥 Login failed", err);
+    console.error("Login failed", err);
     res.status(500).json({ error: "Login failed" });
   }
 };

@@ -9,7 +9,7 @@ admin protected routes and role-based access
 ## stack
 
 - backend: nodejs + express + typescript  
-- database: postgres (via prisma)  
+- database: postgres (via prisma orm)
 - auth: jwt, bcrypt, express-session, passport-google-oauth20  
 - frontend: next.js + tailwind  
 - validation: zod
@@ -20,33 +20,13 @@ admin protected routes and role-based access
 
 - signup + login with JWT
 - password hashing using bcrypt
+- zod validation is reflected on frontend
 - google oauth login (passport)
 - role-based access (admin/user)
-- protected dashboard route
-- logout
+- protected dashboard route using middleware and controller
+- logout by clearing localstorage
 - basic frontend fro testing purpose 
-
----
-
-## folder structure -api
-
-/AUTH-API
-├── controllers
-│ └── controller.auth.ts
-├── middleware
-│ └── auth.ts
-├── routes
-│ ├── auth.routes.ts
-│ └── admin.routes.ts
-├── utils
-│ ├── passport.ts
-│ ├── validation.ts
-│ └── asyncHandler.ts
-├── prisma
-│ └── schema.prisma
-├── .env
-└── index.ts
-
+- eye open/close lucid react icon to see/unsee password
 
 ---
 
@@ -71,9 +51,4 @@ JWT_SECRET=some_long_secret
 GOOGLE_CLIENT_ID=...
 GOOGLE_CLIENT_SECRET=...
 GOOGLE_CALLBACK_URL=http://localhost:5001/api/auth/google/callback
-
-## diagram
-
-
-![example in terminal](<working.png>)
 
