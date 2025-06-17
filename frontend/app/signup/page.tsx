@@ -10,15 +10,21 @@ export default function SignupPage() {
 
   const handleSignup = async () => {
     try {
-      const res = await axios.post('http://localhost:5001/api/auth/signup', { email, password }, {withCredentials:true});
+      const res = await axios.post(
+        'http://localhost:5001/api/auth/signup',
+        { email, password },
+        { withCredentials: true }
+      );
       localStorage.setItem('token', res.data.token);
-      router.push('/dashboard'); //user dashboard
-    } catch (err) {}
+      router.push('/dashboard');
+    } catch (err) {
+      console.error('Signup error:', err);
+    }
   };
 
   return (
-    <div className="max-w-sm mx-auto">
-      <h1 className="text-xl mb-4">Signup</h1>
+    <div className="max-w-sm mx-auto mt-20">
+      <h1 className="text-2xl font-semibold mb-6 text-center">Signup</h1>
       <input
         type="email"
         placeholder="Email"
@@ -33,9 +39,21 @@ export default function SignupPage() {
         onChange={e => setPassword(e.target.value)}
         className="border px-3 py-2 w-full mb-4"
       />
-      <button onClick={handleSignup} className="bg-black text-white px-4 py-2 w-full">
+      <button
+        onClick={handleSignup}
+        className="bg-black text-white px-4 py-2 w-full"
+      >
         Signup
       </button>
+      <p className="mt-4 text-sm text-center">
+        Already have an account?{' '}
+        <span
+          className="text-blue-600 cursor-pointer underline"
+          onClick={() => router.push('/login')}
+        >
+          Sign in
+        </span>
+      </p>
     </div>
   );
 }

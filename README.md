@@ -76,4 +76,4 @@ GOOGLE_CALLBACK_URL=http://localhost:5001/api/auth/google/callback
 
 
 ![example in terminal](<working.png>)
-working.png
+

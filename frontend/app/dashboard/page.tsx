@@ -1,4 +1,5 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
@@ -9,6 +10,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+
     axios
       .get('http://localhost:5001/api/admin/dashboard', {
         headers: { Authorization: `Bearer ${token}` },
@@ -23,16 +25,18 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="relative max-w-sm w-full">
+    <div className="w-full max-w-4xl relative">
+      {/* Logout button in the top-right */}
       <button
         onClick={handleLogout}
-        className="absolute top-0 right-0 text-red-600 text-lg"
+        className="absolute top-4 right-4 text-green-500 hover:text-red-600 text-lg font-medium"
       >
         Logout
       </button>
 
-      <h1 className="text-xl mb-4">Dashboard</h1>
-      <p>hi, user!</p>
+      {/* Centered Dashboard title */}
+      <h1 className="text-4xl font-bold text-center mb-6">Dashboard</h1>
+      <p className="text-base text-center">hi, user!</p>
     </div>
   );
 }
