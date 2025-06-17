@@ -73,6 +73,6 @@ GOOGLE_CLIENT_SECRET=...
 GOOGLE_CALLBACK_URL=http://localhost:5001/api/auth/google/callback
 
 ## diagram
-```md 
 
-![example in terminal](./working.png)
+
+![example in terminal](<working.png>)
