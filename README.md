@@ -1,6 +1,6 @@
 # tedx-auth api 
 
-auth api built for recruitment using node +express
+auth api for recruitment using node + express
 basic jwt based login + google oauth  
 admin protected routes and role-based access
 
@@ -71,8 +71,8 @@ JWT_SECRET=some_long_secret
 GOOGLE_CLIENT_ID=...
 GOOGLE_CLIENT_SECRET=...
 GOOGLE_CALLBACK_URL=http://localhost:5001/api/auth/google/callback
-```bash
 
 ## diagram
+```md 
 
 ![example in terminal](./working.png)
