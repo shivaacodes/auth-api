@@ -1,4 +1,4 @@
-# tedx-auth api 
+# tedx-auth api
 
 auth api for recruitment using node + express
 basic jwt based login + google oauth  
@@ -25,12 +25,12 @@ admin protected routes and role-based access
 - role-based access (admin/user)
 - protected dashboard route using middleware and controller
 - logout by clearing localstorage
-- basic frontend fro testing purpose 
+- basic frontend for testing purpose
 - eye open/close lucid react icon to see/unsee password
 
 ---
 
-##  run
+## run
 
 ```bash
 # running backend (root)
@@ -46,9 +46,22 @@ npm run dev # run next in port 3000
 
 
 # inside root create a .env file 
-DATABASE_URL=postgres://...
-JWT_SECRET=some_long_secret
+DATABASE_URL=postgress database link
+JWT_SECRET=random
 GOOGLE_CLIENT_ID=...
 GOOGLE_CLIENT_SECRET=...
 GOOGLE_CALLBACK_URL=http://localhost:5001/api/auth/google/callback
 
+```
+
+## Screenshots
+
+## Working Demo
+
+![Working Examples](./assets/working.png)
+
+---
+
+### Workflow Diagram
+
+![System Architecture Diagram](./assets/diagram.png)
