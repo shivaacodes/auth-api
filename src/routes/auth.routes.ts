@@ -22,7 +22,12 @@ router.get(
     const token = jwt.sign({ userId: user.id, role: user.role }, process.env.JWT_SECRET!, {
       expiresIn: "1h",
     });
-    res.redirect(`http://localhost:3000/dashboard?token=${token}`);
+    
+    const redirectUrl = user.role === 'ADMIN' 
+      ? `http://localhost:3000/admin?token=${token}`
+      : `http://localhost:3000/dashboard?token=${token}`;
+    
+    res.redirect(redirectUrl);
   }
 );
 

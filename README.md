@@ -30,7 +30,7 @@ admin protected routes and role-based access
 
 ---
 
-## run
+## to run locally
 
 ```bash
 # running backend (root)
@@ -56,15 +56,50 @@ GOOGLE_CALLBACK_URL=http://localhost:5001/api/auth/google/callback
 
 ## Screenshots
 
+### api calls getting reflectd in node terminal
+
 ![Working Examples](./assets/working.png)
+
+### see or unsee password
+
+![password is stored in hashed format](./assets/eye-open.png)
+
+![password is stored in hashed format](./assets/eye-closed.png)
+
+### validation using zod ; email format and min 6 chars for the password
+
+![zod](./assets/zod-test.png)
+
+### user dashboard
+
+![user-dashboard](./assets/user-dashboard.png)
+
+### implemented google oauth login
+
+![google-oauth](./assets/google-auth.png)
 
 ---
 
-### Workflow Diagram
+## Workflow Diagram
 
 ![System Architecture Diagram](./assets/diagram.png)
+
+## Role Based Login
 
 ### password is stored in hashed format with USER as the default Role
 
 ![password is stored in hashed format](./assets/password-hashed.png)
 
+### There are two Admin accounts set: <admin1@gmail.com> with a password admin123 and <admin2@gmail.com> -> admin456. If successfull login it will redirect to the admin dashboard page.
+
+![password is stored in hashed format](./assets/admin-dashboard.png)
+
+### if not ; it shows forbidden in the dashboard [tested through accessing /admin endpoint through a user acc]
+
+![test](./assets/admin-unauthorized.png)
+
+## Added JWT for secure auth with an expiration period of 1 hr
+
+![jwt](./assets/jwt-proof.png)
+
+---

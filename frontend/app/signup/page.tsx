@@ -28,7 +28,15 @@ export default function SignupPage() {
         { withCredentials: true }
       );
       localStorage.setItem('token', res.data.token);
-      router.push('/dashboard');
+
+      const tokenPayload = JSON.parse(atob(res.data.token.split('.')[1]));
+      
+      // Redirecting based on role
+      if (tokenPayload.role === 'ADMIN') {
+        router.push('/admin');
+      } else {
+        router.push('/dashboard');
+      }
     } catch (err) {
       console.error('Signup error:', err);
     }

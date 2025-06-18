@@ -28,9 +28,16 @@ export default function LoginPage() {
         password,
       });
       localStorage.setItem('token', res.data.token);
-      router.push('/dashboard');
+      
+
+      const tokenPayload = JSON.parse(atob(res.data.token.split('.')[1]));
+    
+      if (tokenPayload.role === 'ADMIN') {
+        router.push('/admin');
+      } else {
+        router.push('/dashboard');
+      }
     } catch (err) {
-      // optional: show login error
     }
   };
 
@@ -43,7 +50,7 @@ export default function LoginPage() {
         placeholder="Email"
         value={email}
         onChange={e => setEmail(e.target.value)}
-        className="border px-3 py-2 w-full mb-3 rounded"
+        className="border px-3 py-2 w-full mb-3"
       />
       {errors.email && <p className="text-red-600 text-sm mb-2">{errors.email[0]}</p>}
 
@@ -53,7 +60,7 @@ export default function LoginPage() {
           placeholder="Password"
           value={password}
           onChange={e => setPassword(e.target.value)}
-          className="border px-3 py-2 w-full rounded"
+          className="border px-3 py-2 w-full"
         />
         <button
           type="button"
@@ -67,14 +74,14 @@ export default function LoginPage() {
 
       <button
         onClick={handleLogin}
-        className="bg-black text-white px-4 py-2 w-full rounded hover:bg-gray-800 transition"
+        className="bg-black text-white px-4 py-2 w-full hover:bg-gray-800 transition"
       >
         Login
       </button>
 
       <a
         href="http://localhost:5001/api/auth/google"
-        className="block mt-4 border border-black text-black text-center py-2 rounded hover:bg-gray-100 transition"
+        className="block mt-4 border border-black text-red text-center py-2 hover:bg-gray-100 transition"
       >
         Continue with Google
       </a>

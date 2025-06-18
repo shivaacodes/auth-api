@@ -25,8 +25,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-[var(--font-sans)] px-4 py-6 flex items-center justify-center min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} font-[var(--font-sans)] px-4 py-6 flex flex-col items-center justify-center min-h-screen`}
       >
+        <h1 className="text-5xl font-bold text-red-600 mb-8">
+          TedXCusat
+        </h1>
+
         {children}
       </body>
     </html>
