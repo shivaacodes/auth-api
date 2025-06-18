@@ -50,13 +50,11 @@ DATABASE_URL=postgress database link
 JWT_SECRET=random
 GOOGLE_CLIENT_ID=...
 GOOGLE_CLIENT_SECRET=...
-GOOGLE_CALLBACK_URL=http://localhost:5001/api/auth/google/callback
+GOOGLE_CALLBACK_URL=http://localhost:5001/api/auth/google/callback 
 
 ```
 
 ## Screenshots
-
-## Working Demo
 
 ![Working Examples](./assets/working.png)
 
@@ -65,3 +63,8 @@ GOOGLE_CALLBACK_URL=http://localhost:5001/api/auth/google/callback
 ### Workflow Diagram
 
 ![System Architecture Diagram](./assets/diagram.png)
+
+### password is stored in hashed format with USER as the default Role
+
+![password is stored in hashed format](./assets/password-hashed.png)
+
