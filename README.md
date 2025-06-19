@@ -94,7 +94,9 @@ GOOGLE_CALLBACK_URL=http://localhost:5001/api/auth/google/callback
 
 ![password is stored in hashed format](./assets/admin-dashboard.png)
 
-### if not ; it shows forbidden in the dashboard [tested through accessing /admin endpoint through a user acc]
+### if not ; it shows forbidden in the dashboard [tested through accessing /admin endpoint through a user acc]->Testing in development
+
+### In production ,Implemented middleware to strictly redirect to login if auth fails
 
 ![test](./assets/admin-unauthorized.png)
 
