@@ -90,7 +90,7 @@ GOOGLE_CALLBACK_URL=http://localhost:5001/api/auth/google/callback
 
 ![password is stored in hashed format](./assets/password-hashed.png)
 
-### There are two Admin accounts set: <admin1@gmail.com> with a password admin123 and <admin2@gmail.com> -> admin456. If successfull login it will redirect to the admin dashboard page.
+### There are two Admin accounts set: <admin1@gmail.com> with a password admin123 and <admin2@gmail.com> -> admin456. If successfull login it will redirect to the admin dashboard page
 
 ![password is stored in hashed format](./assets/admin-dashboard.png)
 
