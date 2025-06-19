@@ -9,13 +9,11 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check for token in URL params first (from Google OAuth)
     const urlParams = new URLSearchParams(window.location.search);
     const urlToken = urlParams.get('token');
     
     if (urlToken) {
       localStorage.setItem('token', urlToken);
-      // Remove token from URL
       window.history.replaceState({}, document.title, window.location.pathname);
     }
     

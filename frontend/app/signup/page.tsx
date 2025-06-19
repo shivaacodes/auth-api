@@ -31,7 +31,6 @@ export default function SignupPage() {
 
       const tokenPayload = JSON.parse(atob(res.data.token.split('.')[1]));
       
-      // Redirecting based on role
       if (tokenPayload.role === 'ADMIN') {
         router.push('/admin');
       } else {

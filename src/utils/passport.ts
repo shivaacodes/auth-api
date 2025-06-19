@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 const prisma = new PrismaClient();
 
-//google functionality
+//google auth
 passport.use(
   new GoogleStrategy(
     {
