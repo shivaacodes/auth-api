@@ -8,7 +8,7 @@ router.get(
   authenticate,
   authorizeRoles("ADMIN"),
   (req: Request, res: Response) => {
-    res.json({ message: "welcomne admin" });
+    res.json({ message: "Welcome, Admin!" });
   }
 );
 
