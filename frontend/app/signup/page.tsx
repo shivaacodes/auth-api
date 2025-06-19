@@ -3,7 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { Eye, EyeOff } from 'lucide-react';
-import { signupSchema } from '../../../src/utils/validation'
+import { signupSchema } from '@/utils/validation'
 
 export default function SignupPage() {
   const [email, setEmail] = useState('');

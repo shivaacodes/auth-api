@@ -4,7 +4,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { Eye, EyeOff } from 'lucide-react';
-import { loginSchema } from '../../../src/utils/validation' 
+import { loginSchema } from '@/utils/validation'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
