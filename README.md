@@ -56,7 +56,7 @@ GOOGLE_CALLBACK_URL=http://localhost:5001/api/auth/google/callback
 
 ## Screenshots
 
-### api calls getting reflectd in node terminal
+### api calls getting reflected in node terminal
 
 ![Working Examples](./assets/working.png)
 
