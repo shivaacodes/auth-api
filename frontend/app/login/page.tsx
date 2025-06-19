@@ -23,10 +23,11 @@ export default function LoginPage() {
 
     setErrors({});
     try {
-      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`, {
-        email,
-        password,
-      });
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`,
+        { email, password },
+        { withCredentials: true }
+      );
       localStorage.setItem('token', res.data.token);
       
 
