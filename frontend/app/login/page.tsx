@@ -23,7 +23,7 @@ export default function LoginPage() {
 
     setErrors({});
     try {
-      const res = await axios.post('http://localhost:5001/api/auth/login', {
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`, {
         email,
         password,
       });
@@ -81,7 +81,7 @@ export default function LoginPage() {
       </button>
 
       <a
-        href="http://localhost:5001/api/auth/google"
+        href={`${process.env.NEXT_PUBLIC_API_URL}/api/auth/google`}
         className="block mt-4 border border-black text-red text-center py-2 hover:bg-gray-100 transition"
       >
         Continue with Google

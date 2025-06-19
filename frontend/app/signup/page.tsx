@@ -23,7 +23,7 @@ export default function SignupPage() {
     setErrors({});
     try {
       const res = await axios.post(
-        'http://localhost:5001/api/auth/signup',
+        `${process.env.NEXT_PUBLIC_API_URL}/api/auth/signup`,
         { email, password },
         { withCredentials: true }
       );
