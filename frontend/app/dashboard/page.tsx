@@ -1,10 +1,12 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import axios from 'axios';
 
 export default function DashboardPage() {
   const router = useRouter();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -12,12 +14,24 @@ export default function DashboardPage() {
       router.push('/login');
       return;
     }
+
+    axios
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/api/user/dashboard`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then(() => setLoading(false))
+      .catch(() => {
+        localStorage.removeItem('token');
+        router.push('/login');
+      });
   }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     router.push('/login');
   };
+
+  if (loading) return <p className="text-center mt-10">Loading...</p>;
 
   return (
     <div className="w-full max-w-4xl relative">
@@ -27,9 +41,9 @@ export default function DashboardPage() {
       >
         Logout
       </button>
-      
+
       <h1 className="text-4xl font-bold text-center mb-6">Dashboard</h1>
-      <p className="text-base text-center">hi, user!</p>
+      <p className="text-base text-center">Welcome, User!</p>
     </div>
   );
 }
