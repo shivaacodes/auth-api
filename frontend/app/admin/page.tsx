@@ -28,7 +28,7 @@ export default function AdminPage() {
         localStorage.removeItem('token');
         router.push('/login');
       });
-  }, []);
+  }, [router]);
 
   const handleLogout = () => {
     localStorage.removeItem('token');

@@ -38,11 +38,8 @@ export default function LoginPage() {
       } else {
         router.push('/dashboard');
       }
-    } catch (err: any) {
+    } catch (err) {
       console.error('Login error:', err);
-      if (err.response?.data?.error) {
-        alert(err.response.data.error);
-      }
     }
   };
 
