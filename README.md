@@ -104,4 +104,5 @@ GOOGLE_CALLBACK_URL=http://localhost:5001/api/auth/google/callback
 
 ## Backend deployed on render: [https://tedx-auth-api-el70.onrender.com/](https://tedx-auth-api-el70.onrender.com/)
 
+
 ---
