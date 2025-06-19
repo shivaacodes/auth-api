@@ -14,7 +14,7 @@ router.get("/google", passport.authenticate("google", { scope: ["profile", "emai
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "http://localhost:3000/login",
+    failureRedirect: "https://auth-api-seven-brown.vercel.app/login",
     session: false,
   }),
   (req, res) => {
@@ -24,8 +24,8 @@ router.get(
     });
     
     const redirectUrl = user.role === 'ADMIN' 
-      ? `http://localhost:3000/admin?token=${token}`
-      : `http://localhost:3000/dashboard?token=${token}`;
+      ? `https://auth-api-seven-brown.vercel.app/admin?token=${token}`
+      : `https://auth-api-seven-brown.vercel.app/dashboard?token=${token}`;
     
     res.redirect(redirectUrl);
   }
