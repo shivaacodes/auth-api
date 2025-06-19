@@ -106,4 +106,12 @@ GOOGLE_CALLBACK_URL=http://localhost:5001/api/auth/google/callback
 
 ## frontend deployed on vercel: [https://auth-api-seven-brown.vercel.app/](https://auth-api-seven-brown.vercel.app/)
 
+## run this command in cli to access cloud psql database from render
+
+```bash
+PGPASSWORD=VJ0qEQTeEY5l75mN5hzmkdF3758u9JU0 psql -h dpg-d19u4oripnbc739gnhp0-a.singapore-postgres.render.com -U shiva -d tedxauth
+```
+
+![deployed-render](./assets/deployed-render.png)
+
 ---
